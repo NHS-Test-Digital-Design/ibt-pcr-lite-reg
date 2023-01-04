@@ -1,0 +1,30 @@
+{% set pageTitle = "Did you spend time in any countries outside the UK and Ireland within the last 14 days?" %}
+{% extends "layout_service_step.html" %}
+
+{% block content %}
+
+    {{ govukRadios({
+        idPrefix: "outsideUK",
+        name: "outsideUK",
+        fieldset: {
+            legend: {
+                text: pageTitle,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        hint: {
+            text: "This will help us test the vaccine against variants of coronavirus from different countries. "
+        },
+        items: [
+            {
+                value: "yes",
+                text: "Yes"
+            },
+            {
+                value: "no",
+                text: "No"
+            }
+        ]
+    }) }}
+{% endblock %}

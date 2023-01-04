@@ -1,0 +1,75 @@
+{% set pageTitle = "Confirm the test or event site" %}
+{% extends "layout_service_step.html" %}
+
+{% block content %}
+    <h1 class="govuk-heading-l">
+        {{ pageTitle }}
+    </h1>
+
+    {{ govukSummaryList({
+        rows: [
+            {
+                key: {
+                    text: "Test site or event ID"
+                },
+                value: {
+                    text: "LMHL"
+                },
+                actions: {
+                    items: [
+                        {
+                            href: "#",
+                            text: "Change",
+                            visuallyHiddenText: "Change test site or event ID"
+                        }
+                    ]
+                }
+            }
+        ]
+    }) }}
+
+    <ul class="govuk-list govuk-!-margin-bottom-8">
+        <li class="govuk-!-font-weight-bold">
+            London and Manchester Healthcare Limited
+        </li>
+        <li>
+            Gainsborough House Nursing Home 
+        </li>
+        <li>
+            Warrington
+        </li>
+        <li>
+            WA4 6BZ 
+        </li>
+    </ul>
+
+    <form class="form govuk-!-margin-top-8" action="#" method="post">
+        {{ govukRadios({
+            idPrefix: "siteIDconf",
+            name: "siteIDconf",
+            fieldset: {
+                legend: {
+                    text: "Is this correct?",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
+                }
+            },
+            items: [
+                {
+                    value: "yes",
+                    text: "Yes"
+                },
+                {
+                    value: "no",
+                    text: "No"
+                }
+            ]
+        }) }}
+        
+        {{ govukButton({
+            text: "Continue",
+            classes: "govuk-!-margin-top-4"
+        }) }}
+    </form>
+
+{% endblock %}

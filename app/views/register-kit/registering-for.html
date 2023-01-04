@@ -1,0 +1,35 @@
+{% set pageTitle = "Who are you registering a test for?" %}
+{% extends "layout_service_step.html" %}
+
+{% block content %}
+
+    <form class="form" action="barcode" method="post">
+        {{ govukRadios({
+            idPrefix: "whoFor",
+            name: "whoFor",
+            fieldset: {
+                legend: {
+                    text: pageTitle,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "myself",
+                    text: "Myself"
+                },
+                {
+                    value: "someone-else",
+                    text: "Someone else"
+                }
+            ]
+        }) }}
+
+        {{ govukButton({
+            text: "Continue",
+            classes: "govuk-!-margin-top-4"
+        }) }}
+    </form>
+
+{% endblock %}

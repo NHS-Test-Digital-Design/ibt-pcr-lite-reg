@@ -1,0 +1,65 @@
+{% set pageTitle = "Enter the unique test kit barcode" %}
+{% extends "layout_service_step.html" %}
+
+{% block content %}
+
+    {% set content %}
+        <h1 class="govuk-heading-l">
+            {{ pageTitle }}
+        </h1>
+
+        <p class="govuk-body">
+            Use the camera on your phone or computer to scan the test kit barcode. You’ll find these barcodes attached to the plastic tube, plastic bag and return box in the test kit. 
+        </p>
+
+        <p class="govuk-body">
+            These are different from the pre-paid Royal Mail return package barcode on your box. 
+        </p>
+
+        <p class="govuk-body">
+            Or you can manually enter the 11 character reference below it. 
+        </p>
+
+        {{ govukDetails({
+            summaryText: "What does the barcode look like?",
+            html: "<img alt='Example of barcode - CHE00000501' src='/public/images/example-barcode.png' class='max-width-100'>"
+        }) }}
+
+        {{ govukButton({
+            text: "Scan barcode",
+            classes: "govuk-button--secondary",
+            href: "#"
+        }) }}
+    {% endset %}
+
+    <form class="form" action="barcode" method="post">
+        {% call govukFieldset({
+            legend: {
+                html: content
+            }
+        }) %}
+            {{ govukInput({
+                id: "barcodeRef",
+                name: "barcodeRef",
+                label: {
+                    text: "Test kit barcode reference"
+                }
+            }) }}
+            
+            {{ govukInput({
+                id: "barcodeRefConf",
+                name: "barcodeReConf",
+                label: {
+                    text: "Confirm test kit barcode reference"
+                }
+            }) }}
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Continue",
+            classes: "govuk-!-margin-top-4"
+        }) }}
+
+    </form>
+
+{% endblock %}

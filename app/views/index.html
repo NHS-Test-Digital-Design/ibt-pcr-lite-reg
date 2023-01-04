@@ -1,6 +1,16 @@
 {% set pageTitle = "Register a coronavirus (COVID-19) test" %}
 {% extends "layout.html" %}
 
+
+{% block beforeContent %}
+    {{ govukPhaseBanner({
+        tag: {
+            text: "Beta"
+        },
+        html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    }) }}
+{% endblock%}
+
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -85,14 +95,14 @@
         You can use the free <a href="https://www.bemyeyes.com/" class="govuk-link">Be My Eyes app</a> to get help from trained NHS Test and Trace staff. Download the app, go to 'Specialized Help' and select 'NHS Test & Trace' in the 'Personal Health' category. 
       </p>
 
-      <p>
-        {{ govukButton({
-          text: "Start now",
-          href: "/rename-to-your-service/service-step-template",
-          isStartButton: true,
-          classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8"
-        }) }}
-      </p>
+      
+      {{ govukButton({
+        text: "Start now",
+        href: "/register-kit/registering-for",
+        isStartButton: true,
+        classes: "govuk-!-margin-top-6"
+      }) }}
+      
 
       <h2 class="govuk-heading-m">
         Advice about getting tested in the UK
