@@ -1,0 +1,87 @@
+{% set pageTitle = "Lite reg - China arrivals" %}
+{% extends "layout_service_step.html" %}
+
+{% block content %}
+<h1 class="govuk-heading-l">
+    {{ pageTitle }}
+</h1>
+
+{{ govukTable({
+    caption: "Screens",
+    firstCellIsHeader: True,
+    head: [
+        {
+            text: "Name"
+        },
+        {
+            text: "File"
+        },
+        {
+            text: "Status"
+        }
+    ],
+    rows: [
+        [
+            {
+                html: "<a href='../register-kit/travelled-overseas' class='govuk-link'>Overseas travel</a>"
+            },
+            {
+                text: "register-kit/travelled-overseas.html"
+            },
+            {
+                text:
+                govukTag({
+                    text: "updated",
+                    classes: "govuk-tag--yellow"
+                })
+            }
+        ],
+        [
+            {
+                html: "<a href='../register-kit/location' class='govuk-link'>Test location</a>"
+            },
+            {
+                text: "register-kit/location.html"
+            },
+            {
+                text:
+                govukTag({
+                    text: "updated",
+                    classes: "govuk-tag--yellow"
+                })
+            }
+        ],
+        [
+            {
+                html: "<a href='../register-kit/test-site-id' class='govuk-link'>Test site ID</a>"
+            },
+            {
+                text: "register-kit/test-site-id.html"
+            },
+            {
+                text:
+                govukTag({
+                    text: "updated",
+                    classes: "govuk-tag--yellow"
+                })
+            }
+        ],
+        [
+            {
+                html: "<a href='../register-kit/confirm-test-site' class='govuk-link'>Confirm test site</a>"
+            },
+            {
+                text: "register-kit//confirm-test-site.html"
+            },
+            {
+                text:
+                govukTag({
+                    text: "updated",
+                    classes: "govuk-tag--yellow"
+                })
+            }
+        ]
+    ]
+}) }}
+
+{% endblock %}
